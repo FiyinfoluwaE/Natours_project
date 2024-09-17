@@ -1,0 +1,63 @@
+.flex-row {
+  display: flex;
+  justify-content: center;
+
+  max-width: $grid-width;
+  margin: 0 auto;
+  column-gap: $gutter-horizontal;
+
+  @include respond(tab-portrait) {
+    flex-direction: column;
+    row-gap: $gutter-vertical-small;
+    column-gap: 0;
+    max-width: 50rem;
+    padding: 0 3rem;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+
+    @include respond(tab-portrait) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+}
+
+[class^="col-"] {
+  @include respond(tab-portrait) {
+    width: 100% !important;
+  }
+}
+
+.col-1-of-2 {
+  flex: 0 1 50%;
+
+  // margin-right: $gutter-horizontal;
+}
+
+.col-1-of-4 {
+  flex: 0 1 25%;
+
+  // margin-right: $gutter-horizontal;
+}
+
+.col-1-of-3 {
+  flex: 0 1 33.3333333%;
+}
+// //attribute selector. Selects any class (^ - starts with..., $ - ends with..., * - contain) "col-"
+// [class^="col-"] {
+//   background-color: orangered;
+//   float: left;
+
+//   &:not(:last-child) {
+//     margin-right: $gutter-horizontal;
+//   }
+// }
+
+// .col-1-of-2 {
+//   width: calc((100% - #{$gutter-horizontal}) / 2);
+// }
+
+// .col-1-of-3 {
+//   width: calc((100% - #{$gutter-horizontal}) / 3);
+// }
